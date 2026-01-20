@@ -6,7 +6,6 @@ from datetime import datetime, timedelta
 mf = Mftool()
 all_schemes = mf.get_scheme_codes()
 
-# --- NEW FUNCTION: THE DATA ENGINE ---
 # This function does the heavy lifting to find Returns and Risk
 def get_advanced_info(code):
     try:
@@ -14,7 +13,6 @@ def get_advanced_info(code):
         details = mf.get_scheme_details(code)
         
         # 2. Get Historical Data (Last 5 Years)
-        # This is where we get the data to calculate returns
         df = mf.get_scheme_historical_nav(code, as_Dataframe=True).reset_index()
         
         # Clean the data (Turn dates into real Time objects, and NAV into Numbers)
